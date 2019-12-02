@@ -7,11 +7,12 @@
 //
 
 /// References:
-/// https://forums.developer.apple.com/thread/117348
-/// https://developer.apple.com/tutorials/swiftui/interfacing-with-uikit
-/// https://github.com/rhysm94/Browser/blob/master/Browser/WebView.swift
+/// [UIWebkit - Apple Developer forums](https://forums.developer.apple.com/thread/117348)
+/// [Interfacing with UIKit -- Apple](https://developer.apple.com/tutorials/swiftui/interfacing-with-uikit)
+/// [Browser - github](https://github.com/rhysm94/Browser/blob/master/Browser/WebView.swift)
 /// [Ultimate Guide](https://www.hackingwithswift.com/articles/112/the-ultimate-guide-to-wkwebview)
 /// [Javascript interception](https://developpaper.com/wk-webview-protocol-interception-details-for-ios-and-js-interaction-tutorial/)
+/// [Removing a block based KVO observer (SO)](https://stackoverflow.com/questions/46591637/in-swift-4-how-do-i-remove-a-block-based-kvo-observer)
 
 import SwiftUI
 import WebKit
@@ -43,10 +44,6 @@ struct WebView : UIViewRepresentable {
             observations.append(wkWebView.observe(\.estimatedProgress, options: .new) { (webView, change) in
                 print(webView.estimatedProgress)
             })
-        }
-        
-        deinit {
-            observations = [NSKeyValueObservation]()
         }
     }
       
